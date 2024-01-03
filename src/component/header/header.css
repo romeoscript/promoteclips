@@ -1,0 +1,342 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&family=Inter:wght@200;400&family=Manrope&family=Poppins:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins";
+}
+.not_show{
+  display: none;
+}
+.containers {
+  background: #505abc url(src/assets/background.svg) no-repeat;
+  background-position: 50% 50%;
+  background-size: auto 100%;
+  color: #fff;
+  /* background-color: #505ABC; */
+  height: 90vh;
+  padding: 1rem;
+}
+.absolute_video{
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.motion_p {
+  width: 65%;
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  background: #505abc;
+  left: 0;
+  top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+.menu h1 {
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+}
+.menulist {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menulist p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 1);
+  padding-right: 2rem;
+}
+.menuheader {
+  align-items: center;
+  text-align: center;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.input_container {
+  width: 100%;
+}
+.menuheader h2 {
+  color: rgba(255, 255, 255, 1);
+}
+.menuheader h1 {
+  color: rgba(255, 255, 255, 1);
+  padding: 1rem 0;
+  font-size: 40px;
+}
+.menuheader p {
+  text-align: center;
+  color: #bbd3f9;
+  padding: 0 0 2rem 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+.menuheader img {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.menuheader input {
+  padding: 0.8rem 4rem;
+  /* border: 1px solid rgba(22, 74, 121, 1); */
+  background: transparent;
+  outline: none;
+  width: 70%;
+  /* border-style: dashed; */
+  color: aliceblue;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.menuheader input::placeholder {
+  font-size: 8px;
+  color: aliceblue;
+  font-size: 17px;
+}
+.start {
+  border-style: dotted;
+  border: 1px solid rgba(22, 74, 121, 1);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 1.5rem;
+  border: none;
+  padding: 0.9rem 2rem;
+  background-color: rgba(22, 74, 121, 1);
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+  .menuheader h1 {
+    font-size: 30px;
+  }
+  .menuheader p {
+    padding: 0 0 2rem 0;
+    font-weight: normal;
+    font-size: 18px;
+  }
+  .menuheader h2 {
+    font-size: 15px;
+  }
+  .menuheader img {
+    width: 30px;
+    padding: 0.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .not_show{
+    display: block;
+  }
+  .menuheader h1 {
+    font-size: 23px;
+  }
+  .menuheader p {
+    text-align: center;
+    /* color: rgba(255, 255, 255, 1); */
+    padding: 0 0 2rem 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .menuheader h2 {
+    font-size: 15px;
+  }
+  .menuheader img {
+    width: 20px;
+    padding: 0.5rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .containers{
+    height: 60vh;
+  }
+  .menuheader h1 {
+    font-size: 20px;
+  }
+  .menuheader p {
+    text-align: center;
+    /* color: rgba(255, 255, 255, 1); */
+    padding: 0 0 2rem 0;
+  }
+  .menuheader h2 {
+    font-size: 15px;
+  }
+  .menuheader img {
+    width: 20px;
+    padding: 0.5rem;
+  }
+}
+@media only screen and (max-width: 465px) {
+  .menu {
+    padding: 0.5rem;
+  }
+  .menuheader h1 {
+    font-size: 16px;
+  }
+
+  .menuheader input {
+    padding: 0.8rem 1rem;
+  }
+  .start {
+    padding: 0.9rem 1rem;
+    display: none;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .menu h1 {
+    font-size: 15px;
+  }
+  .menulist p {
+    padding-right: 1rem;
+  }
+  .menuheader h1 {
+    font-size: 12px;
+  }
+  .menuheader h2 {
+    font-size: 10px;
+  }
+  .menuheader p {
+    padding: 0 0 1rem 0;
+    font-weight: 400;
+  }
+  .menuheader img {
+    width: 20px;
+    padding: 0.5rem;
+  }
+  .menuheader input {
+    padding: 0.1rem 0.3rem;
+  }
+  /* .menuheader input::placeholder{
+        font-size: 7px;
+    } */
+}
+
+aside {
+  width: 60%;
+  margin: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: -4px 2px 18px 16px rgba(214, 207, 214, 1);
+  -moz-box-shadow: -4px 2px 18px 16px rgba(214, 207, 214, 1);
+  box-shadow: -4px 2px 18px 16px rgba(214, 207, 214, 1);
+  cursor: pointer;
+  height: 80px;
+  display: flex;
+  font-weight: 100;
+  gap: 2%;
+  overflow: hidden;
+  background-color: white;
+  color: black !important;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+aside img {
+  width: 200px;
+  object-fit: cover;
+  padding: 0 !important;
+  border-radius: 10px;
+}
+aside div {
+  width: 80%;
+}
+aside div p {
+  font-size: 12px !important;
+  text-align: left !important;
+  color: black !important;
+  font-weight: 100 !important;
+}
+aside div h2 {
+  font-size: 15px !important;
+  color: black !important;
+  margin-bottom: 0.5rem;
+  text-align: left !important;
+  font-weight: 100 !important;
+}
+
+.image_father {
+  width: 70%;
+  margin: auto;
+  padding: 1rem;
+}
+.image_father span {
+  font-weight: 100;
+  color: blue;
+  font-size: 14px;
+}
+.image {
+  width: 100%;
+  border-radius: 10px;
+  height: 250px;
+  object-fit: cover;
+}
+.modal_details {
+  font-weight: bold;
+  font-size: 15px;
+}
+.modal_details span {
+  color: blue !important;
+}
+figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3%;
+}
+.view_Info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 550px) {
+  aside {
+    width: 90%;
+    display: block;
+  }
+
+  .motion_p {
+    width: 100%;
+  }
+  aside div {
+    width: 100%;
+    font-size: 12px;
+  }
+  aside div h2 {
+    font-size: 12px !important;
+  }
+  aside div p {
+    width: 100%;
+    font-size: 9px !important;
+  }
+  aside img {
+    display: none !important;
+  }
+  .image_father {
+    width: 100%;
+    padding: 0;
+  }
+  .image {
+    height: 100px;
+  }
+  .vid_title,
+  .modal_details {
+    font-size: 12px;
+  }
+  figure div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

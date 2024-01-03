@@ -1,0 +1,68 @@
+.plan{
+    margin: 5rem;
+}
+.selectPlan{
+    text-align: left;
+    margin: 1rem;
+}
+.plan input{
+    width: 80%;
+    padding:3rem ;
+}
+.prices{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.pricesPacks{
+    padding: 2rem;
+}
+.prices h2{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.pricesPacks h1{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: left;
+    color: linear-gradient(0deg, #000000, #000000),;
+}
+.pricesPacks span{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:linear-gradient(0deg, #888888, #888888);
+}
+.requirements{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.requirements p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(70, 70, 70, 1);
+
+}
+.planbtn{
+    padding: 12px 36px 12px 36px;
+    border-radius: 10px;
+    margin: 2rem;
+    border-radius: 1px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #505ABC
+}
+.pricesPacks:hover{
+    background-color:   #505ABC;
+    border-radius: 2rem;
+    color: rgba(249, 249, 249, 1)!important;
+}

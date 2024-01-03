@@ -1,0 +1,22 @@
+/* Hide Debit or Credit Card button */
+.paypal-button-label-credit {
+  display: none !important;
+}
+
+/* Hide Powered by PayPal */
+.paypal-button-branding {
+  display: none !important;
+}
+
+/* Remove margin */
+div[ref="paypalRef"] {
+  margin: 0 !important;
+}
+.paypal-button.paypal-button-shape-rect{
+    width: 200px;
+    margin: 0!important;
+}
+/* Change border color */
+div[ref="paypalRef"] .paypal-button {
+  border-color: blue !important;
+}

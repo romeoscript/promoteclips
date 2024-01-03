@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.curtail{
+    background: #505abc url(src/assets/background.svg) no-repeat;
+    background-position: 50% 50%;
+    background-size: auto 100%;
+    color: #fff;
+  
+}
