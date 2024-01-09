@@ -75,9 +75,10 @@ const PrettoSlider = styled(Slider)({
 export default function TransitionsModal({ setInfo, video }) {
     const [open, setOpen] = useState(true);
     const [data, setData] = useState({
-        viewsSlider: 500,
-        likesSlider: 80,
-        subscribersSlider: 20,
+        viewsSlider: 0,
+        likesSlider: 0,
+        subscribersSlider: 0,
+        sharesSlider:0
     });
     const handleSliderChange = (type, newValue) => {
         setData(prevData => ({
@@ -93,12 +94,21 @@ export default function TransitionsModal({ setInfo, video }) {
 
     }
 
-    const likes = data.likesSlider * 2
-    const sub = data.subscribersSlider * 0.1
-    const view = data.viewsSlider * 0.2
+    const likes = data.likesSlider * 0.08
+    const likesoff = likes * 0.01
+    
+    const sub = data.subscribersSlider * 0.0812 
+    const suboff = sub * 0.0357
+    
+    const share = data.sharesSlider * 0.8
+    const shareoff = share * 0.035
 
 
-    const total = view + sub + likes
+    const view = data.viewsSlider * 0.0072
+    const viewsoff = (view * 0.0181).toFixed(2)
+
+console.log(view);
+    const total = (view - viewsoff) + (sub - suboff) + (likes - likesoff) + (share - shareoff)
     return (
         <div className='modal_figure' >
             <Modal
@@ -125,7 +135,7 @@ export default function TransitionsModal({ setInfo, video }) {
 
                             <p className='view_Info'>
                                 <span>{data.viewsSlider} views</span>
-                                <span>${view}</span>
+                                <span>${(view - viewsoff).toFixed(2)} (${viewsoff} Off) </span>
                             </p>
                             <PrettoSlider
                                 valueLabelDisplay="auto"
@@ -138,34 +148,48 @@ export default function TransitionsModal({ setInfo, video }) {
                             />
                             <p className='view_Info'>
                                 <span>{data.likesSlider} Likes</span>
-                                <span>${likes}</span>
+                                <span>${(likes - likesoff).toFixed(2)}(${likesoff} Off)</span>
                             </p>
                             <PrettoSlider
                                 valueLabelDisplay="auto"
                                 aria-label="pretto slider"
                                 value={data.likesSlider}
-                                step={10}
+                                step={50}
                                 marks
                                 onChange={(e, val) => handleSliderChange('likesSlider', val)}
                                 max={1000}
                             />
                             <p className='view_Info'>
-                                <span>{data.subscribersSlider}Subscribers</span>
-                                <span>${sub}</span>
+                                <span>{data.subscribersSlider} Subscribers</span>
+                                <span>${(sub - suboff).toFixed(2)} (${suboff.toFixed(2)} Off)</span>
                             </p>
                             <PrettoSlider
                                 valueLabelDisplay="auto"
                                 aria-label="pretto slider"
+                                step={100}
                                 value={data.subscribersSlider}
                                 marks
                                 onChange={(e, val) => handleSliderChange('subscribersSlider', val)}
                                 max={500}
                             />
+                            <p className='view_Info'>
+                                <span>{data.sharesSlider} Shares</span>
+                                <span>${(share - shareoff).toFixed(2)} (${shareoff.toFixed(2)} Off)</span>
+                            </p>
+                            <PrettoSlider
+                                valueLabelDisplay="auto"
+                                aria-label="pretto slider"
+                                step={5}
+                                value={data.sharesSlider}
+                                marks
+                                onChange={(e, val) => handleSliderChange('sharesSlider', val)}
+                                max={50}
+                            />
 
                         </Box>
-                        <h2 className='modal_details'>You will receive <span>{data.viewsSlider}</span> views, <span>{data.likesSlider}</span> likes, and <span>{data.subscribersSlider}</span> subscribers</h2>
+                        <h2 className='modal_details'>You will receive <span>{data.viewsSlider}</span> views, <span>{data.likesSlider}</span> likes, <span>{data.sharesSlider}</span> shares, and <span>{data.subscribersSlider}</span> subscribers</h2>
                         <figure>
-                            <h3>TOTAL= ${total}</h3>
+                            <h3>TOTAL= ${total.toFixed(2)}</h3>
                             <div className='md:flex items-center justify-center ' >
                                 <StripeButton amount={total} />
                                 
