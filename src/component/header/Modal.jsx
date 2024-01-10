@@ -191,9 +191,9 @@ console.log(view);
                         <figure>
                             <h3>TOTAL= ${total.toFixed(2)}</h3>
                             <div className='md:flex items-center justify-center ' >
-                                <StripeButton amount={total} />
+                                <StripeButton amount={total.toFixed(2)} />
                                 
-                                <PaypalBtn amount={total} />
+                                <PaypalBtn amount={total.toFixed(2)} />
                             </div>
                         </figure>
                     </Box>

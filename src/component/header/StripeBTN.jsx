@@ -9,11 +9,11 @@ const StripeButton = ({amount}) => {
     const handleCheckout = async () => {
         console.log(amount);
         try {
-            // Call your vanilla app's API endpoint to create a Stripe session using Axios
+         
             const response = await axios.post('https://nftapi-production-405a.up.railway.app/create-stripe-session',{
                 amount:amount
             });
-
+            // https://nftapi-production-405a.up.railway.app/
             const { sessionId } = response.data;
 
             // Redirect to the vanilla app for payment with the session ID
