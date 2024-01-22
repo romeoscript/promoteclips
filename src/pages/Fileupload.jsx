@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 
-
 function FileUpload() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [filePreview, setFilePreview] = useState('');
     const [loading, setLoading] = useState(false);
+    const [apiKey, setApiKey] = useState(''); // State variable for API key
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
@@ -24,6 +24,10 @@ function FileUpload() {
         }
     };
 
+    const handleApiKeyChange = (event) => {
+        setApiKey(event.target.value);
+    };
+
     const handleUpload = async (event) => {
         event.preventDefault();
         if (!selectedFile) {
@@ -35,13 +39,14 @@ function FileUpload() {
 
         const formData = new FormData();
         formData.append('file', selectedFile);
-       
+
         try {
             const response = await axios.post('http://localhost:4000/upload-csv', formData, {
-                responseType: 'blob', // Important to handle binary data
+                responseType: 'blob',
                 headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+                    'Content-Type': 'multipart/form-data',
+                    'api-key': apiKey, // Include the API key in the request headers
+                },
             });
 
             const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
@@ -52,7 +57,7 @@ function FileUpload() {
             setLoading(false);
         }
     };
-  
+
     return (
         <div className='flex items-center justify-center h-[100vh]'>
             <form onSubmit={handleUpload}>
@@ -66,12 +71,21 @@ function FileUpload() {
                             <span className="sr-only">Loading...</span>
                         </div>
                     ) : (
-                       <p className='text-center'>{selectedFile?.name}</p>
+                        <p className='text-center'>{selectedFile?.name}</p>
                     )}
                     <span className="mt-2 text-base leading-normal">
                         {loading ? 'Uploading...' : 'Select a file'}
                     </span>
                 </label>
+                <div className="mt-4">
+                    <input
+                        type="text"
+                        placeholder="Enter API Key"
+                        value={apiKey}
+                        onChange={handleApiKeyChange}
+                        className="w-64 px-4 py-2 border rounded-md"
+                    />
+                </div>
                 <button type="submit" disabled={loading} className='bg-[steelblue] text-white rounded-md p-[0.5rem] block my-[1rem] w-[200px] m-auto'>
                     Upload
                 </button>
